@@ -33,12 +33,14 @@ A Django web application project developed for Melbourne Polytechnic. Admins can
 📝 How to Run
 Clone this repository
 
-1. text run
+1. text 
+
    git clone https://github.com/KimSuor23/News-Management-.git
 
   - Install Django (if not installed)
 
 2. text
+   
   pip install django
 
   - Run database migrations
