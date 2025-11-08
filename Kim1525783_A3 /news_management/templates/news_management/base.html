@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}XYZ News Management System{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css?family=Segoe+UI:400,600&display=swap" rel="stylesheet">
+    <style>
+        /* Basic reset and body style */
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(120deg, #f4f6fa 25%, #dde3ed 100%);
+            margin: 0;
+            min-height: 100vh;
+            color: #333d4b;
+        }
+        /* Container for center alignment and white card */
+        .container {
+            max-width: 900px;
+            margin: 48px auto 24px auto;
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 4px 28px rgba(204, 211, 224, 0.65);
+            padding: 44px 48px 32px 48px;
+        }
+        /* Site title */
+        h1 {
+            font-size: 2.4em;
+            color: #334060;
+            font-weight: 600;
+            margin: 0 0 16px 0;
+        }
+        /* Navigation bar styling */
+        nav {
+            margin-bottom: 36px;
+        }
+        nav a {
+            margin-right: 32px;
+            font-weight: 600;
+            font-size: 1.15em;
+            color: #3178ff;
+            text-decoration: none;
+            padding-bottom: 6px;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s ease-in-out;
+        }
+        nav a:hover, nav a:focus {
+            border-bottom: 2px solid #3178ff;
+            outline: none;
+        }
+        /* News list styles */
+        .news-list, .category-list {
+            display: grid;
+            gap: 20px;
+        }
+        /* News card style */
+        .news-card, .category-card {
+            background: #f7fafd;
+            border-radius: 12px;
+            padding: 20px 28px 16px 28px;
+            border: 1px solid #e6eaee;
+            box-shadow: 0 2px 8px rgba(234, 239, 255, 0.45);
+            transition: box-shadow 0.22s;
+        }
+        .news-card:hover, .category-card:hover {
+            box-shadow: 0 12px 32px rgba(186, 200, 223, 0.35);
+        }
+        /* News title */
+        .news-title, .category-title {
+            font-size: 1.2em;
+            color: #234377;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        /* Anchor styles in news and category */
+        .news-title a, .category-title a {
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 2px solid #3178ff;
+            transition: color 0.22s;
+        }
+        .news-title a:hover, .category-title a:hover {
+            color: #206db2;
+        }
+        /* News metadata */
+        .news-meta {
+            color: #6985a6;
+            font-size: 0.95em;
+            margin-bottom: 12px;
+        }
+        /* Read more link */
+        .read-more {
+            color: #357ae8;
+            font-size: 1em;
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 4px;
+        }
+        .read-more:hover {
+            text-decoration: underline;
+        }
+        /* News content preview */
+        .news-preview {
+            font-size: 1em;
+            color: #254477;
+            line-height: 1.7;
+        }
+        /* Article detail style */
+        .meta {
+            color: #6985a6;
+            font-size: 1em;
+            margin-bottom: 20px;
+        }
+        .category-label {
+            background: #daf1e0;
+            color: #176bb8;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 1em;
+            display: inline-block;
+            margin-bottom: 26px;
+        }
+        .content {
+            font-size: 1.1em;
+            line-height: 1.7;
+            color: #234477;
+        }
+        /* Back link style */
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            font-weight: 500;
+            font-size: 1em;
+            color: #357ae8;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        /* Responsive adjustments */
+        @media (max-width: 700px) {
+            .container {
+                padding: 18px 12px;
+                margin: 32px auto 24px auto;
+            }
+            .news-card, .category-card {
+                padding: 16px 18px;
+            }
+            nav {
+                margin-bottom: 24px;
+            }
+            nav a {
+                margin-right: 18px;
+                font-size: 1.05em;
+            }
+        }
+    </style>
+    {% block extra_styles %}{% endblock %}
+</head>
+<body>
+    <div class="container">
+        <h1>XYZ News Management System</h1>
+        <nav>
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'category_list' %}">News Categories</a>
+            <a href="/admin/">Admin</a>
+
+            {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a>
+            {% endif %}
+        </nav>
+        {% block content %}{% endblock %}
+    </div>
+
+
+</body>
+</html>

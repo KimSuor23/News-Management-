@@ -1,0 +1,27 @@
+{% extends 'news_management/base.html' %}
+
+{% block title %}
+all categories - xyz news
+{% endblock %}
+
+{% block content %}
+<!-- main heading -->
+<h1>all categories</h1>
+
+<!-- list all categories -->
+<div class="category-list">
+    {% for category in categories %}
+    <div class="category-card">
+    <span class="category-title">
+      <a href="{% url 'category_detail' category.id %}">{{ category.name }}</a>
+    </span>
+    </div>
+    {% empty %}
+    <!-- no csategories message -->
+    <div style="color:#a5a9af;">no categories found.</div>
+    {% endfor %}
+</div>
+
+<!-- back to home -->
+<a class="back-link" href="{% url 'home' %}">&#8592; back to home</a>
+{% endblock %}

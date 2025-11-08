@@ -1,0 +1,39 @@
+{% extends 'news_management/base.html' %}
+
+{% block title %}
+category: {{ category.name }} - xyz news
+{% endblock %}
+
+{% block content %}
+<!-- show category name -->
+<h1>category: {{ category.name }}</h1>
+
+<!-- list of news in this category -->
+<div class="news-list">
+    {% for article in news %}
+    <div class="news-card">
+        <!-- title of news linked to full article -->
+        <div class="news-title">
+            <a href="{% url 'article_detail' article.id %}">{{ article.title }}</a>
+        </div>
+
+        <!-- source and published date -->
+        <div class="news-meta">
+            {{ article.source }} | {{ article.published_date }}
+        </div>
+
+        <!-- preview of news content truncated to 25 words -->
+        <div class="news-preview">
+            {{ article.content|truncatewords:25 }}
+            <a class="read-more" href="{% url 'article_detail' article.id %}">read more&gt;&gt;</a>
+        </div>
+    </div>
+    {% empty %}
+    <!-- message if no news in category -->
+    <div style="color:#a5a9af;">no news found for this category.</div>
+    {% endfor %}
+</div>
+
+<!-- back link to categories list page -->
+<a class="back-link" href="{% url 'category_list' %}">&#8592; back to categories</a>
+{% endblock %}

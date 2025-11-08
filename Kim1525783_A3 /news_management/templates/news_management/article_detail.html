@@ -1,0 +1,33 @@
+{% extends 'news_management/base.html' %}
+
+{% block title %}
+{{ article.title }} - xyz news
+{% endblock %}
+
+{% block content %}
+
+<h1>{{ article.title }}</h1> <!-- article title -->
+
+<!-- show source and published date under title -->
+<div class="meta">
+    <strong>source:</strong> {{ article.source }} &nbsp;&nbsp;|&nbsp;&nbsp;
+    <strong>date:</strong> {{ article.published_date }}
+</div>
+
+<!-- show category label under meta info -->
+<div class="category-label">{{ article.category.name }}</div>
+
+<!-- show full article content only once -->
+<div class="content">
+    {{ article.content }}
+</div>
+
+{% if user.is_authenticated %}
+<!-- show Edit and Delete buttons if user is logged in -->
+<a href="{% url 'news_update' article.pk %}">Edit</a> |
+<a href="{% url 'news_delete' article.pk %}">Delete</a>
+{% endif %}
+
+<!-- link to go back to homepage -->
+<a class="back-link" href="{% url 'home' %}">&#8592; back to home</a>
+{% endblock %}
