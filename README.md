@@ -1,111 +1,68 @@
 # News-Management
 
-Overview
-This Django-based News Management System allows administrators to efficiently create, edit, and organize news articles and categories through a secure web interface. Built for assignment submission at Melbourne Polytechnic, it demonstrates core concepts in web application development, relational data modeling, and the use of Django's built-in Admin tools.​
+📰 News Management Web App
 
-Features
-Display of recent news articles on the public home page
+A Django web application project developed for Melbourne Polytechnic. Admins can easily manage news articles and categories through a secure, responsive interface.
 
-Browse news articles by category
+🚀 Features
+🛡️ Admin Features:
 
-Full detail view for individual articles
+Add, edit, and delete news articles
 
-Secure admin site for CRUD (Create, Read, Update, Delete) operations
+Organize articles into categories
 
-Built-in user authentication for admin users
+Admin login for management access
 
-Robust data validation and model design
+Validate unique categories and non-empty fields
 
-Technologies
+🌎 Public Features:
+
+Browse news by category
+
+View latest news articles on the homepage
+
+See full details of individual articles
+
+🛠️ Technologies Used
 Backend: Python, Django
 
 Frontend: Django Templates, HTML, CSS
 
-Database: SQLite (default Django setup)
+Database: SQLite (default)
 
-Project Structure
-text
-Kim1525783_A3/
-├── Kim1525783_A3/           # Django project config (settings, urls, wsgi, asgi)
-├── news_management/         # Main Django app (models, views, forms, templates)
-│   ├── migrations/
-│   ├── templates/
-│   │   └── news_management/
-│   │       ├── base.html
-│   │       ├── home.html
-│   │       ├── article_detail.html
-│   │       ├── categories.html
-│   │       ├── category_detail.html
-│   │       ├── news_form.html
-│   │       ├── news_confirm_delete.html
-│   │       └── registration/
-│   │           └── login.html
-│   ├── models.py
-│   ├── views.py
-│   ├── forms.py
-│   └── tests.py
-├── db.sqlite3               # SQLite database
-├── manage.py
-└── requirements.txt
-Setup & Running Locally
-Clone the repository:
+📝 How to Run
+Clone this repository
 
 text
 git clone https://github.com/KimSuor23/News-Management-.git
-cd News-Management-
-(Optional but recommended) Create and activate a virtual environment:
+Install Django (if not installed)
 
 text
-python -m venv venv
-source venv/bin/activate  # On Windows use venv\Scripts\activate
-Install dependencies:
-
-text
-pip install -r requirements.txt
-Apply migrations:
+pip install django
+Run database migrations
 
 text
 python manage.py migrate
-Create a superuser for admin access:
+Create admin account
 
 text
 python manage.py createsuperuser
-Run the development server:
+Start the development server
 
 text
 python manage.py runserver
-Access the app:
+View site: http://localhost:8000/
 
-Open http://localhost:8000/ for the frontend
+Django Admin: http://localhost:8000/admin
 
-Open http://localhost:8000/admin for the Django Admin console
+📁 Project Structure
+Kim1525783_A3/ – Django project settings (settings.py, urls.py, asgi.py, wsgi.py)
 
-Main Functionalities
-Public Frontend:
+news_management/ – App code and templates
 
-View recent news on the home page (latest 4 by publish date)
+db.sqlite3 – Database file
 
-Browse all categories and filter articles by category
-
-View full article details
-
-Admin Console:
-
-Login required for all management actions
-
-Add, edit, and delete articles and categories using Django Admin
-
-Validation: unique category names, non-empty news titles, data type checks
-
-Sample Data Model
-News: Title, Category (foreign key), Source, Published Date, Content
-
-Category: Unique name per category
-
-Acknowledgements
-Developed as part of the Bachelor of IT (Software Development) – Melbourne Polytechnic, 2025.
-
-Author
+👤 Author
 Kim Sour Liv
 Bachelor of IT (Software Development)
 Melbourne Polytechnic
