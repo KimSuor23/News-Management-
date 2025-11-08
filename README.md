@@ -33,30 +33,25 @@ A Django web application project developed for Melbourne Polytechnic. Admins can
 📝 How to Run
 Clone this repository
 
-1. text 
+1. Clone this repository: 
 
    git clone https://github.com/KimSuor23/News-Management-.git
 
-  - Install Django (if not installed)
-
-2. text
+2. Install Django (if not installed):
    
-  pip install django
+   pip install django
 
-  - Run database migrations
+3. Run database migrations:
 
-3. text
-  python manage.py migrate
+   python manage.py migrate
 
-  - Create admin account
-
-4. text
+4. Create admin account:
+ 
   python manage.py createsuperuser
 
-  - Start the development server
+5. Start the development server:
 
-5. text
-  python manage.py runserver
+   python manage.py runserver
 
   - View site: http://localhost:8000/
 
